@@ -1,0 +1,44 @@
+<?php
+
+	include 'konek.php';
+	function idiotWAF($input) {
+		return preg_replace('/order/', 'g3t_the_fuCk_0ut_1n73ct0R!!!!', preg_replace('/select|version|database|information|schema|columns|table/', '', $input));
+	}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Employee's Data</title>
+	<!-- idiot.txt -->
+</head>
+<body>
+	<ul>
+	<?php
+		$q = $link->query("SELECT name_user FROM user_data");
+		if(isset($_GET['user'])) {
+			if(strpos(urldecode(strtolower($_GET['user'])), 'order') == true) {
+				die('order by ? hell no, gtfo');
+			} else {
+				$idiotFilter = idiotWAF($_GET['user']);
+				$q1 = $link->query("SELECT id_user,name_user FROM user_data WHERE name_user='".$idiotFilter."'") or die($link->error);
+				$r1 = $q1->fetch_assoc();
+
+				$q2 = $link->query("SELECT id_user,name_user,nick_user FROM user_data WHERE id_user=('".$r1['id_user']."')") or die($link->error);
+				$r2 = $q2->fetch_assoc();
+
+				echo "<ul>";
+				echo "<li>id user  : ".$r2['id_user']."</li>
+							<li>username : ".$r2['name_user']."</li>
+							<li>nickname : ".$r2['nick_user']."</li> ";
+			}
+			
+		} else {
+			while($r = $q->fetch_assoc()) {
+				echo "<li><a href='?user=".$r['name_user']."'>".$r['name_user']."</a></li>";
+			} echo "</ul>";
+		}
+	?>
+</body>
+</html>

@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /Tell_Me_Youre_Admin/

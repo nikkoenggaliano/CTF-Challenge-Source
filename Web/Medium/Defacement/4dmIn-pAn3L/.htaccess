@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Panel"
+AuthUserFile D:/xampp/htdocs/hbs/hackerclass/medium/4dmIn-pAn3L/.htpasswd
+Require valid-user
