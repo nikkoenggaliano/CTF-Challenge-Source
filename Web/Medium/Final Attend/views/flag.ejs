@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.container{
+    padding:5%;
+}
+.container .img{
+    text-align:center;
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+	</style>
+</head>
+<body>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 img">
+      <img src="https://channel-korea.com/wp-content/uploads/2018/06/8a5c6a588b065f23a6fe026b2bf589e9.jpg"  alt="" class="img-rounded">
+    </div>
+    <div class="col-md-6 details">
+      <blockquote>
+        <h5>Halo <%= nama %></h5>
+        <small><cite title="Source Title"><%= ints %><i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        Nama kota kamu (<%= kota %>) sudah kami catata kedalam database<br>
+        Kami akan menghubungi anda nanti! <br>
+      </p>
+      <br>
+      <p>
+      	Nomer undian anda di database adalah (<%= undian %>) <br>
+      	Silahkan simpan token ini = (<%= token %>)
+      </p>
+      	    <center><button type="button" class="btn btn-primary" onclick="window.location.href='/del'">Selesai</button></center>
+    </div>
+    <br>
+  </div>
+</div>
+</body>
+</html>
